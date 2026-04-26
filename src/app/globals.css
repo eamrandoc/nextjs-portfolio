@@ -128,3 +128,104 @@
     @apply font-sans;
   }
 }
+
+
+
+
+
+
+
+/* EXTRA */
+
+@keyframes gradientMove {
+  0% { background-position: 0% }
+  100% { background-position: 200% }
+}
+
+.animate-gradient {
+  background-size: 200% auto;
+  animation: gradientMove 4s linear infinite;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@keyframes marquee {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+/* Base ticker */
+.animate-marquee {
+  display: flex;
+  width: max-content;
+  animation: marquee 12s linear infinite;
+}
+
+/* Pause on hover */
+.ticker:hover .animate-marquee {
+  animation-play-state: paused;
+}
+
+/* Speed variants */
+.marquee-slow {
+  animation-duration: 20s;
+}
+
+.marquee-normal {
+  animation-duration: 12s;
+}
+
+.marquee-fast {
+  animation-duration: 6s;
+}
+
+/* Edge fade (news TV style) */
+.ticker-fade {
+  mask-image: linear-gradient(
+    to right,
+    transparent,
+    black 10%,
+    black 90%,
+    transparent
+  );
+}
+
+/* LIVE pulse dot */
+@keyframes pulse-live {
+  0% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.4;
+    transform: scale(0.85);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.live-dot {
+  width: 8px;
+  height: 8px;
+  background: red;
+  border-radius: 9999px;
+  animation: pulse-live 1s infinite;
+}
