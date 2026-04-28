@@ -22,8 +22,8 @@ export default function SkillCard({ skill }: { skill: Skill }) {
         />
 
         {/* ICON */}
-        <div className="p-3 rounded-xl bg-muted/40 relative z-10 transition-transform group-hover:scale-110">
-          <Icon size={22} style={{ color: skill.color }} />
+        <div className="p-4 rounded-2xl bg-muted/50 border border-border/50 relative z-10 transition-transform duration-500 group-hover:scale-110 group-hover:bg-muted/80 shadow-xs">
+          <Icon size={32} style={{ color: skill.color }} />
         </div>
 
         {/* TEXT */}

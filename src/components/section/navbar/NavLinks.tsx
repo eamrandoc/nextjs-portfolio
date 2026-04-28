@@ -22,7 +22,7 @@ export default function NavLinks({ links }: Props) {
         >
           <Link
             href={link.href}
-            className="group relative text-sm text-muted-foreground hover:text-primary transition"
+            className="group relative text-base font-medium text-muted-foreground hover:text-primary transition-colors duration-300"
           >
             {link.label}
             {/* ✨ hover underline */}

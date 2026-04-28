@@ -1,11 +1,17 @@
-import { ExternalLink } from "lucide-react"
 import Image from "next/image"
+import Link from "next/link"
+import { ExternalLink } from "lucide-react"
 import { FaGithub } from "react-icons/fa"
+
 import { Project } from "@/types/project"
+
+import { Card, CardContent } from "@/components/ui/card"
+import { Badge } from "@/components/ui/badge"
+import { Button } from "@/components/ui/button"
 
 export default function ProjectCard({ project }: { project: Project }) {
   return (
-    <div className="group relative rounded-2xl overflow-hidden border bg-background/60 backdrop-blur-xl shadow-xl transition hover:scale-[1.02]">
+    <Card className="group relative overflow-hidden rounded-2xl border bg-background/60 backdrop-blur-xl shadow-xl transition hover:scale-[1.02]">
 
       {/* IMAGE */}
       <div className="relative h-56 overflow-hidden">
@@ -13,63 +19,66 @@ export default function ProjectCard({ project }: { project: Project }) {
           src={project.image}
           alt={project.title}
           fill
+          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
           className="object-cover transition duration-700 group-hover:scale-105"
         />
 
         <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition bg-linear-to-t from-black/70 to-transparent" />
       </div>
 
-      {/* CONTENT */}
-      <div className="p-5 space-y-3">
+      <CardContent className="p-6 space-y-4 relative z-10">
 
-        <h3 className="text-xl font-semibold group-hover:text-primary transition">
-          {project.title}
-        </h3>
+        {/* TITLE + DESCRIPTION */}
+        <div className="space-y-1">
+          <h3 className="text-2xl font-bold tracking-tight group-hover:text-primary transition">
+            {project.title}
+          </h3>
 
-        <p className="text-sm text-muted-foreground">
-          {project.description}
-        </p>
+          <p className="text-sm text-muted-foreground line-clamp-2">
+            {project.description}
+          </p>
+        </div>
 
-        {/* TECH */}
+        {/* TECH STACK */}
         <div className="flex flex-wrap gap-2">
           {project.tech.map((t) => (
-            <span
-              key={t}
-              className="text-xs px-2 py-1 rounded-full border bg-muted"
-            >
+            <Badge key={t} variant="secondary" className="text-xs">
               {t}
-            </span>
+            </Badge>
           ))}
         </div>
 
         {/* LINKS */}
-        <div className="flex gap-4 pt-2">
-          <a
-            href={project.github}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex items-center gap-1 text-sm hover:text-primary"
-          >
-            <FaGithub size={16} />
-            Code
-          </a>
+        <div className="flex gap-3 pt-2">
+          <Button asChild variant="outline" size="sm">
+            <a href={project.github} target="_blank" rel="noopener noreferrer">
+              <FaGithub className="mr-1" size={16} />
+              Code
+            </a>
+          </Button>
 
           {project.live && (
-            <a
-              href={project.live}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center gap-1 text-sm hover:text-purple-400"
-            >
-              <ExternalLink size={16} />
-              Live
-            </a>
+            <Button asChild size="sm" variant="secondary">
+              <a href={project.live} target="_blank" rel="noopener noreferrer">
+                <ExternalLink className="mr-1" size={16} />
+                Live
+              </a>
+            </Button>
           )}
         </div>
 
-      </div>
-      <div className="absolute inset-0 opacity-0 group-hover:opacity-10 bg-linear-to-r from-primary via-purple-500 to-pink-500 blur-2xl transition duration-500" />
+        {/* DETAILS LINK */}
+        <Link
+          href={`/projects/${project.slug}`}
+          className="text-sm text-primary hover:underline inline-block"
+        >
+          View Details →
+        </Link>
 
-    </div>
+      </CardContent>
+
+      {/* GLOW EFFECT */}
+      <div className="absolute inset-0 pointer-events-none opacity-0 group-hover:opacity-10 bg-linear-to-r from-primary via-purple-500 to-pink-500 blur-2xl transition" />
+    </Card>
   )
 }

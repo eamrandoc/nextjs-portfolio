@@ -41,7 +41,7 @@ const MobileMenu = ({ links }: Props) => {
             <SheetTitle>Navigation Menu</SheetTitle>
           </VisuallyHidden>
 
-          <div className="flex flex-col gap-6 mt-10 text-lg">
+          <div className="flex flex-col gap-3 mt-10">
             {links.map((link, i) => (
               <Animated
                 key={link.href}
@@ -50,8 +50,8 @@ const MobileMenu = ({ links }: Props) => {
               >
                 <Link
                   href={link.href}
-                  onClick={() => setOpen(false)} 
-                  className="hover:text-purple-400 transition"
+                  onClick={() => setOpen(false)}
+                  className="block w-full px-4 py-3 text-lg font-medium text-foreground/80 rounded-xl hover:bg-muted/60 hover:text-primary transition-all duration-300"
                 >
                   {link.label}
                 </Link>

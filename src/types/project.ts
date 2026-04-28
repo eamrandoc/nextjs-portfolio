@@ -1,6 +1,5 @@
 export type Filter = "all" | "frontend" | "backend" | "fullstack"
 
-
 export type Project = {
   id: string
   slug: string
@@ -9,7 +8,11 @@ export type Project = {
   image: string
   gallery?: string[]
   tech: string[]
-  category: "frontend" | "backend" | "fullstack"
+  category: Filter extends "all" ? never : Filter
   github: string
-  live: string
+  live?: string
+
+  // optional but recommended
+  challenges?: string[]
+  future?: string[]
 }

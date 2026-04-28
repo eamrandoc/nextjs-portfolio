@@ -14,8 +14,16 @@ export default function AboutLeft() {
           </h3>
 
           <p className="text-muted-foreground leading-relaxed">
-            Full Stack Web Developer specializing in React, Next.js, Node.js, and PostgreSQL. I focus on building scalable web applications and REST APIs with clean architecture and performance optimization.
+            I started my programming journey with curiosity about how websites work,
+            which gradually turned into a passion for building full-stack applications.
+
+            I enjoy solving real-world problems, especially designing scalable backend systems
+            and clean, interactive user interfaces.
+
+            Beyond coding, I enjoy playing cricket and football, listening to music,
+            and traveling. These activities help me stay creative and balanced.
           </p>
+
 
           <div className="space-y-2 text-sm text-muted-foreground">
             <p>📍 Location: Khulna, Bangladesh</p>

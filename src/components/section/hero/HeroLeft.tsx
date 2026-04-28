@@ -7,13 +7,9 @@ import HeroTypewriter from "./HeroTypewriter"
 const HeroLeft = () => {
   return (
     <Animated variant="fadeRight">
-      <div className="space-y-8 backdrop-blur-2xl bg-white/10 dark:bg-white/5 border border-white/20 p-8 md:p-10 rounded-3xl shadow-[0_20px_80px_rgba(0,0,0,0.25)]">
+      <div className="space-y-8 backdrop-blur-2xl bg-background/40 border border-border/50 p-8 md:p-10 rounded-3xl shadow-xl">
 
-        {/* Name */}
-        {/* <h1 className="text-4xl md:text-6xl font-extrabold bg-linear-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
-          Md Al Eamran
-        </h1> */}
-
+        {/* Name */}       
         <h1 className="text-4xl md:text-6xl font-extrabold">
           <span className="bg-linear-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
             Md Al Eamran
@@ -46,12 +42,13 @@ const HeroLeft = () => {
 
           <Link
             href="/resume.pdf"
+            download
             target="_blank"
             rel="noopener noreferrer"
           >
             <Button
               variant="outline"
-              className="rounded-full border-white/20 hover:border-purple-400 hover:shadow-[0_0_25px_rgba(168,85,247,0.6)] transition"
+              className="rounded-full border-border/50 hover:border-purple-400 hover:shadow-[0_0_25px_rgba(168,85,247,0.6)] transition"
             >
               Download Resume
             </Button>
